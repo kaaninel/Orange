@@ -1,0 +1,17 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/orange
+orange.so
+orange.dylib
+orange.dll
+orange.a
+orange.lib
+orange-test-*
+*.exe
+*.o
+*.obj
+*.lst
+.vscode
+orange-test-library

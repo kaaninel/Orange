@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"Necati Kaan Inel<kaaninel@gmail.com>"
+	],
+	"copyright": "Copyright © 2019, Necati Kaan Inel<kaaninel@gmail.com>",
+	"description": "A virtual machine",
+	"license": "proprietary",
+	"name": "orange"
+}
