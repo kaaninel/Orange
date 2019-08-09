@@ -1,48 +1,40 @@
 module Util.Gear;
 
-class Gear(T)
-{
+struct Gear(T) {
   uint Size;
   uint Loc = 0;
   T[] Fields;
 
-  this(uint Size)
-  {
+  this(uint Size) {
     this.Size = Size;
     Fields = new T[Size];
   }
 
-  void Right()
-  {
+  void Right() {
     Loc = (Loc - 1) % Size;
   }
 
-  void Left()
-  {
+  void Left() {
     Loc = (Loc + 1) % Size;
   }
 
-  void Push(T Value)
-  {
+  void Push(T Value) {
     Left();
     Fields[this.Loc] = Value;
   }
 
-  T Pop()
-  {
+  T Pop() {
     auto Tmp = Fields[this.Loc];
     Right();
     return Tmp;
   }
 
-  T Peak()
-  {
+  T Peak() {
     return Fields[this.Loc];
   }
 }
 
-unittest
-{
+unittest {
   auto G = new Gear!int(4);
   G.Push(1);
   G.Push(2);

@@ -1,22 +1,32 @@
 module Util.Instruction;
 import std.stdio;
-import Blocks.Base : Block, Variable;
+import Blocks.Base : Block, Variable, VG;
 import Util.Gear;
 
-enum Instructions
-{
+enum Instructions {
   Add,
   Sub,
   Mul,
-  Div
+  Div,
+  LoadIG,
+  LoadBG,
+  LeftIG,
+  LeftBG,
+  RightIG,
+  RightBG
 }
 
-alias InstructionFn = bool function(Block Blk, Gear!Variable);
-struct Instruction(T)
-{
+alias InstructionFn = bool function(Block Blk, VG);
+struct Instruction(T) {
   Instructions Key;
   InstructionFn Fn;
-  Gear!T CW;
 }
 
+Gear!Variable[Instructions] InGs;
 Instruction!Variable[Instructions] InFns;
+
+void AddInstruction(Instructions I, InstructionFn Fn, VG G) {
+
+  InFns[I] = Instruction!Variable(I, Fn);
+  InGs[I] = G;
+}
